@@ -23,6 +23,11 @@ export class AppComponent implements OnInit {
 
   //define getRecordById() handler
   getRecordById() {
+    //Do I need to get the data 2 times ?
+    if (this.petId > 3) {
+      alert('Please choose ID among 1,2,3');
+      return;
+    }
     this.dataService.getAllPets().subscribe((pets) => (this.petsID = pets));
     this.dataService
       .getPetById(this.petId)

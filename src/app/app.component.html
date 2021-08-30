@@ -1,52 +1,43 @@
-<h2>Pet data records</h2>
+<div class="container">
+  <h2>Pet data records</h2>
 
-<h3>List of pets</h3>
-<!-- Implement your view here -->
-<button (click)="getAllRecords()">Click</button>
-<!-- <div *ngFor="let pet of pets">{{pets | json}}</div> -->
-<table>
-  <tr>
-    <th>id</th>
-    <th>type</th>
-    <th>price</th>
-  </tr>
+  <h3>List of pets</h3>
+  <!-- Implement your view here -->
+  <button class="btn" (click)="getAllRecords()">Show all pets</button>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>type</th>
+      <th>price</th>
+    </tr>
 
-  <tr *ngFor="let pet of pets">
-    <td>{{ pet.id }}</td>
-    <td>{{ pet.type }}</td>
-    <td>{{ pet.price }}</td>
-  </tr>
-</table>
-<!-- <div>{{pets | json}}</div> -->
-<br /><br />
-<h3>Find pet details</h3>
-<input type="number" [(ngModel)]="petId" />
-<button (click)="getRecordById()">Search</button>
+    <tr *ngFor="let pet of pets">
+      <td>{{ pet.id }}</td>
+      <td>{{ pet.type }}</td>
+      <td>{{ pet.price }}</td>
+    </tr>
+  </table>
+  <br />
+  <h3>Find pet details</h3>
+  <input
+    type="number"
+    [(ngModel)]="petId"
+    placeholder="Search pet by ID number"
+  />
+  <!-- why my placeholder does not work ? -->
+  <button class="btn" (click)="getRecordById()">Show pet details</button>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>type</th>
+      <th>price</th>
+    </tr>
 
-<!-- <form (ngSubmit)="getRecordById()">
-  <div>
-    <label for="text">Search</label>
-    <input
-      type="number"
-      name="petId"
-      [(ngModel)]="petId"
-      id="petId"
-      placeholder="Search ID"
-    />
-  </div>
-  <input type="submit" value="Search" />
-</form> -->
-<table>
-  <tr>
-    <th>id</th>
-    <th>type</th>
-    <th>price</th>
-  </tr>
-
-  <tr *ngFor="let petID of petsID">
-    <td>{{ petID.id }}</td>
-    <td>{{ petID.type }}</td>
-    <td>{{ petID.price }}</td>
-  </tr>
-</table>
-<br /><br />
+    <tr *ngFor="let petID of petsID">
+      <td>{{ petID.id }}</td>
+      <td>{{ petID.type }}</td>
+      <td>{{ petID.price }}</td>
+    </tr>
+  </table>
+  <br /><br />
+</div>
