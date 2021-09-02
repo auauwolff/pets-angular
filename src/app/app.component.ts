@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
 
   //define getRecordById() handler
   getRecordById() {
-    if (this.petId > 3 || this.petId < 1) {
-      alert('Please choose ID among 1,2,3');
+    if (this.petId > 3 || this.petId < 1 || this.petId || !this.petId) {
+      alert('Please inser only IDs among 1,2,3');
       return;
     }
     this.dataService

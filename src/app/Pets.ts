@@ -3,7 +3,7 @@ export class Pets {
   type: string;
   price: number;
 
-  constructor(id: number = 0, type: string = '', price: number = 0) {
+  constructor(id: any = '', type: any = '', price: any = '') {
     this.id = id;
     this.type = type;
     this.price = price;
