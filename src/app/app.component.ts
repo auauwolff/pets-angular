@@ -13,8 +13,8 @@ export class AppComponent implements OnInit {
   title = 'assgn2app';
   //declare necessary variables
   pets: Pets[] = [];
-  petId: number = 1;
-  petsID: Pets[] = [];
+  petId: any;
+  petsById: Pets = new Pets();
 
   //define the constructor
   constructor(private dataService: DataService) {}
@@ -23,17 +23,13 @@ export class AppComponent implements OnInit {
 
   //define getRecordById() handler
   getRecordById() {
-    //Do I need to get the data 2 times ?
-    if (this.petId > 3) {
+    if (this.petId > 3 || this.petId < 1) {
       alert('Please choose ID among 1,2,3');
       return;
     }
-    this.dataService.getAllPets().subscribe((pets) => (this.petsID = pets));
     this.dataService
       .getPetById(this.petId)
-      .subscribe(
-        () => (this.petsID = this.petsID.filter((p) => p.id == this.petId))
-      );
+      .subscribe((pets) => (this.petsById = pets));
   }
   //define getAllRecords() handler
   getAllRecords() {
